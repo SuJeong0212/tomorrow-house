@@ -1,6 +1,4 @@
 .order-form {
-  margin-bottom: 40px;
-
   .order-inputs {
     margin-bottom: 20px;
 
@@ -46,5 +44,9 @@
         margin-right: 0;
       }
     }
+  }
+
+  @include responsive(D) {
+    margin-bottom: 40px;
   }
 }
