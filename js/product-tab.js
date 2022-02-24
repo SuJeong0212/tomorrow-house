@@ -9,7 +9,7 @@ let disableUpdating = false
 
 function toggleActiveTab() {
   const tabItem = this.parentNode
- 
+
   if (currentActiveTab !== tabItem) {
     disableUpdating = true
     tabItem.classList.add('is-active')
@@ -19,7 +19,7 @@ function toggleActiveTab() {
     //함수가 실행 되고 1초 뒤에 disableUpdating = false 로 다시 바뀌게 함
     setTimeout(() => {
       disableUpdating = false
-    }, 1000);
+    }, 1000)
   }
 }
 
@@ -118,5 +118,5 @@ function updateActiveTabOnScroll() {
 }
 
 window.addEventListener('load', detectTabPanelPosition)
-window.addEventListener('resize', detectTabPanelPosition)
-window.addEventListener('scroll', updateActiveTabOnScroll)
+window.addEventListener('resize', _.throttle(detectTabPanelPosition, 1000)) // _.throttle로 계속 실행되는 함수 퍼포먼스 개선하기
+window.addEventListener('scroll', _.throttle(updateActiveTabOnScroll, 300)) // _. 은 lodash.js 라이브러리로 사용함
