@@ -119,4 +119,4 @@ function updateActiveTabOnScroll() {
 
 window.addEventListener('load', detectTabPanelPosition)
 window.addEventListener('resize', _.throttle(detectTabPanelPosition, 1000)) // _.throttle로 계속 실행되는 함수 퍼포먼스 개선하기
-window.addEventListener('scroll', _.throttle(updateActiveTabOnScroll, 300)) // _. 은 lodash.js 라이브러리로 사용함
+window.addEventListener('scroll', _.throttle(updateActiveTabOnScroll, 300)) // _. 은 lodash.js 라이브러리로 사용함 (_로 사용가능)
