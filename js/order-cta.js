@@ -1,4 +1,7 @@
 let orderCta = document.querySelector('.order-cta')
+let bookmarkDesktop = document.querySelector(
+  '.floating-order-form .button-group .bookmark-button'
+)
 
 let [orderCtaBookmarkButton, orderCtaBuyButton] = orderCta.children
 
@@ -34,8 +37,23 @@ function toggleOrderCtaBookmark() {
   }
 
   countSpan.innerHTML = newCount.toLocaleString()
-  countSpan.setAttribute('aria-label',`북마크 ${newCount.toLocaleString()}회`)
+  countSpan.setAttribute('aria-label', `북마크 ${newCount.toLocaleString()}회`)
   this.classList.toggle('is-active')
 }
 
+function toggleOrderCtaBookmarkDesktop() {
+  const icon = bookmarkDesktop.querySelector('i')
+  if (this.classList.contains('is-active')) {
+    icon.classList.add('ic-bookmark')
+    icon.classList.remove('ic-bookmark-filled')
+  } else {
+    icon.classList.add('ic-bookmark-filled')
+    icon.classList.remove('ic-bookmark')
+  }
+
+  this.classList.toggle('is-active')
+  console.log(this)
+}
+
 orderCtaBookmarkButton.addEventListener('click', toggleOrderCtaBookmark)
+bookmarkDesktop.addEventListener('click', toggleOrderCtaBookmarkDesktop)
